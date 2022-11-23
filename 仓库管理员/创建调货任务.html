@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8"/> 
+		<title>仓库管理员</title>
+        <script type="text/javascript" src="../vue.js"></script>
+        <link rel="stylesheet" type="text/css" href="../style.css"> 
+    </head>
+    <body>
+        <div id="root">
+            <div id="menu">
+                <top_menu></top_menu>
+                <left_menu></left_menu>
+            </div>
+            <div class="article">
+                <h1>管理调货任务</h1>
+                <div class="form_div" v-for="(p,index) of thd" :key="index">
+                    货物ID:&nbsp{{thd[index].kind}}&nbsp&nbsp&nbsp&nbsp
+                    货物种类:&nbsp{{thd[index].name}}&nbsp&nbsp&nbsp&nbsp
+                    数量:&nbsp{{thd[index].num}}<br>
+                    源仓库：&nbsp{{thd[index].from}}&nbsp&nbsp&nbsp&nbsp
+                    目的地门店：&nbsp{{thd[index].to}}&nbsp&nbsp&nbsp&nbsp
+                    状态:&nbsp<select v-model="thd[index].status">
+                        <option value='缺货中，等待进货'>缺货中，等待进货</option>
+                        <option value='等待送货员送货'>等待送货员送货</option>
+                        <option value='已完成'>已完成</option>
+                    </select>
+                    <button v-on:click="save">保存修改</button>
+                </div>
+                <div class="form_div">
+                    <h2 style="margin: 0px;">新建调货任务</h2>
+                    货物ID:<input type="text" v-model="temp[0]">&nbsp&nbsp&nbsp&nbsp
+                    货物种类:<input type="text" v-model="temp[1]">&nbsp&nbsp&nbsp&nbsp
+                    数量:<input type="number" v-model="temp[2]"><br>
+                    源仓库：当前仓库&nbsp&nbsp&nbsp&nbsp
+                    目的地门店：<select v-model="temp[4]">
+                        <option value="傀影门店#01">傀影门店#01</option>
+                        <option value="水月门店#02">水月门店#02</option>
+                        <option value="骑士门店#03">骑士门店#03</option>
+                        <option value="大蒂门店#04">大蒂门店#04</option>
+                    </select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <button v-on:click="add_thd">创建调货任务</button>
+                </div>
+            </div>
+        </div>
+        <script  type="text/javascript" src="./main.js"></script>
+        <script  type="text/javascript" src="../data.js"></script>
+    </body>
+</html>
