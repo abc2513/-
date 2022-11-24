@@ -15,6 +15,7 @@
             <div class="article">
                 <h1>管理调货任务</h1>
                 <div class="form_div" v-for="(p,index) of thd" :key="index">
+                    <h3 style="margin: 0px;">任务#{{index+1}}</h3>
                     货物ID:&nbsp{{thd[index].kind}}&nbsp&nbsp&nbsp&nbsp
                     货物种类:&nbsp{{thd[index].name}}&nbsp&nbsp&nbsp&nbsp
                     数量:&nbsp{{thd[index].num}}<br>
@@ -25,10 +26,11 @@
                         <option value='等待送货员送货'>等待送货员送货</option>
                         <option value='已完成'>已完成</option>
                     </select>
-                    <button v-on:click="save">保存修改</button>
+                    <button v-on:click="save" style="float: right;font-size:large">保存修改</button>
                 </div>
                 <div class="form_div">
                     <h2 style="margin: 0px;">新建调货任务</h2>
+                    <h3 style="margin: 0px;">调货任务</h3>
                     货物ID:<input type="text" v-model="temp[0]">&nbsp&nbsp&nbsp&nbsp
                     货物种类:<input type="text" v-model="temp[1]">&nbsp&nbsp&nbsp&nbsp
                     数量:<input type="number" v-model="temp[2]"><br>
@@ -39,7 +41,7 @@
                         <option value="骑士门店#03">骑士门店#03</option>
                         <option value="大蒂门店#04">大蒂门店#04</option>
                     </select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <button v-on:click="add_thd">创建调货任务</button>
+                    <button v-on:click="add_thd" style="float: right;font-size:large">创建调货任务</button>
                 </div>
             </div>
         </div>

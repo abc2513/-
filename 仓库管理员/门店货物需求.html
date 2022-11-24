@@ -15,6 +15,7 @@
             <div class="article">
                 <h1>门店货物需求</h1>
                 <div class="form_div" v-for="(p,index) of thxq" :key="index">
+                    <h3 style="margin: 0px;">需求#{{index+1}}</h3>
                     货物ID:&nbsp{{thxq[index].kind}}&nbsp&nbsp&nbsp&nbsp
                     货物种类:&nbsp{{thxq[index].name}}&nbsp&nbsp&nbsp&nbsp
                     需求门店:&nbsp{{thxq[index].src}}&nbsp&nbsp&nbsp&nbsp

@@ -8,13 +8,23 @@
     </head>
     <body>
         <div id="root">
-            <top_menu></top_menu>
-            <left_menu></left_menu>
+            <div id="menu">
+                <top_menu></top_menu>
+                <left_menu></left_menu>
+            </div>
             <div class="article">
-                <h1>首页</h1>
-                <h3>时间就是生命，效率就是金钱</h3>
+                <h1>查看仓库库存</h1>
+                <span>本页面无需输入。调货、进货后系统自动修改库存</span>
+                <div class="form_div" v-for="(p,index) of ckkc" :key="index">
+                    <h3 style="margin: 0px;">库存#{{index+1}}</h3>
+                    货物ID:&nbsp{{ckkc[index].kind}}&nbsp&nbsp&nbsp&nbsp
+                    货物种类:&nbsp{{ckkc[index].name}}&nbsp&nbsp&nbsp&nbsp
+                    数量:&nbsp{{ckkc[index].num}}<br>
+                    信息:&nbsp{{ckkc[index].text}}
+                </div>
             </div>
         </div>
         <script  type="text/javascript" src="./main.js"></script>
+        <script  type="text/javascript" src="../data.js"></script>
     </body>
 </html>
